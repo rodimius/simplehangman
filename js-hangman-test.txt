@@ -1,0 +1,16 @@
+Task
+----
+
+Develop a simple Hangman game using modular code in JavaScript.
+
+
+Requirements
+------------
+
+Security considerations to stop cheating.
+
+Use a random word from a small dictionary set (antidisestablishmentarianism, bikes, cheeseburgers, crackerjack, fusion, mammalian).
+
+Once you have completed the test please add the source to a public Git repository.
+
+Time scale: Complete the task over a period of a week.
