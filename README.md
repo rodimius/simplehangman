@@ -11,7 +11,7 @@ The words used in the game are antidisestablishmentarianism, bikes,
 cheeseburgers, crackerjack, fusion, and mammalian, they are obfuscated in the source to prevent casual cheating.
 
 ##To run
-If you have node installed run `npm install -g http-server`, then in the root directory of the repository run `http-server`
+If you have node installed run `npm install -g http-server`, then in the root directory of the repository run `http-server` and you will be able to browse to `localhost:8080`
 
 ##Instructions
 
