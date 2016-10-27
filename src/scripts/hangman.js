@@ -10,7 +10,7 @@ define('hangman',
 
     var messages = {
       begin: 'Press start to begin',
-      guess: 'Enter a letter',
+      guess: 'Enter a letter, you have 5 lives',
       win: 'You Win!',
       lose: 'You Lost :('
     }
@@ -52,6 +52,7 @@ define('hangman',
       setMessage(messages.guess)
       hide(config.start_element)
       show(config.reset_element)
+      show(config.input_element)
 
       // create the placeholder elements for unknown letters
       for (var i = 0; i < atob(current_word).length; i++) {
@@ -69,9 +70,11 @@ define('hangman',
       clearLetters()
       setMessage(messages.begin)
       hide(config.reset_element)
+      hide(config.input_element)
       show(config.start_element)
     }
 
+    // set up all user interaction
     var bindInputs = function () {
       config.start_element.addEventListener('click', start)
       config.reset_element.addEventListener('click', reset)
@@ -84,17 +87,33 @@ define('hangman',
     }
 
     var fillInLetter = function (letter) {
+      var guessed_letters = 0
       for (var i = 0; i < letter_states.length; i++) {
         if (letter_states[i].letter === letter) {
           letter_states[i].guessed = true
+          // update display to fill in placeholder
           config.letters_element.children[i].innerHTML = letter
         }
+        // update guessed count
+        if (letter_states[i].guessed === true) { guessed_letters++ }
+      }
+
+      // victory condition
+      if (guessed_letters === letter_states.length) {
+        setMessage(messages.win)
+        hide(config.input_element)
       }
     }
 
     var loseLife = function () {
       lives = lives - 1
-      setMessage('Lives left: ' + lives)
+      // loss condition
+      if (lives === 0) {
+        setMessage(messages.lose)
+        hide(config.input_element)
+      } else {
+        setMessage('Lives left: ' + lives)
+      }
     }
 
     var guess = function (letter) {
@@ -110,6 +129,7 @@ define('hangman',
     var init = function () {
       bindInputs()
       hide(config.reset_element)
+      hide(config.input_element)
       setMessage(messages.begin)
     }
 
