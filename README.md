@@ -3,15 +3,18 @@
 Simple enough to make without a framework. Javascript compiled with webpack
 into the `/build` folder to allow me to use modules without a runtime library.
 
+##To build
+Run `npm run webpack` in the root of the repository.
+
 Linted using [Standard](http://standardjs.com).
 
-The elements in the config object must be assigned before init is called.
+Run `npm run standard` in the root of the repository to lint.
 
 The words used in the game are antidisestablishmentarianism, bikes,
 cheeseburgers, crackerjack, fusion, and mammalian, they are obfuscated in the source to prevent casual cheating.
 
 ##To run
-If you have node installed run `npm install -g http-server`, then in the root directory of the repository run `http-server` and you will be able to browse to `localhost:8080`
+Run `npm run http-server` in the root directory of the repository. You will then be able to browse to `localhost:8080`.
 
 ##Instructions
 

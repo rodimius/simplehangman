@@ -4,17 +4,27 @@
   "description": "",
   "main": "src/scripts/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "webpack": "webpack",
+    "standard": "standard",
+    "http-server": "http-server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "http-server": "^0.9.0",
     "standard": "^8.5.0",
     "webpack": "^1.13.2"
   },
   "standard": {
-    "ignore": ["build/bundle.js"],
-    "globals": ["define", "atob", "btoa"]
+    "ignore": [
+      "build/bundle.js",
+      "webpack.config.js"
+    ],
+    "globals": [
+      "define",
+      "atob",
+      "btoa"
+    ]
   }
 }

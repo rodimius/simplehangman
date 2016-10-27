@@ -81,9 +81,9 @@
 	    // without a server to store state away from the user real security is impossible
 	    var words = ['YW50aWRpc2VzdGFibGlzaG1lbnRhcmlhbmlzbQ==', 'YmlrZXM=', 'Y2hlZXNlYnVyZ2Vycw==', 'Y3JhY2tlcmphY2s=', 'ZnVzaW9u', 'bWFtbWFsaWFu']
 
-	    var current_word
+	    var currentWord
 
-	    var letter_states = []
+	    var letterStates = []
 
 	    var setMessage = function (message) {
 	      config.message_element.innerHTML = message
@@ -108,15 +108,15 @@
 	    }
 
 	    var start = function () {
-	      current_word = randomWord()
+	      currentWord = randomWord()
 	      setMessage(messages.guess)
 	      hide(config.start_element)
 	      show(config.reset_element)
 	      show(config.input_element)
 
 	      // create the placeholder elements for unknown letters
-	      for (var i = 0; i < atob(current_word).length; i++) {
-	        letter_states.push({letter: atob(current_word)[i], guessed: false})
+	      for (var i = 0; i < atob(currentWord).length; i++) {
+	        letterStates.push({letter: atob(currentWord)[i], guessed: false})
 	        var li = document.createElement('li')
 	        li.appendChild(document.createTextNode('_'))
 	        config.letters_element.appendChild(li)
@@ -125,8 +125,8 @@
 
 	    var reset = function () {
 	      lives = 5
-	      current_word = null
-	      letter_states = []
+	      currentWord = null
+	      letterStates = []
 	      clearLetters()
 	      setMessage(messages.begin)
 	      hide(config.reset_element)
@@ -147,19 +147,19 @@
 	    }
 
 	    var fillInLetter = function (letter) {
-	      var guessed_letters = 0
-	      for (var i = 0; i < letter_states.length; i++) {
-	        if (letter_states[i].letter === letter) {
-	          letter_states[i].guessed = true
+	      var guessedLetters = 0
+	      for (var i = 0; i < letterStates.length; i++) {
+	        if (letterStates[i].letter === letter) {
+	          letterStates[i].guessed = true
 	          // update display to fill in placeholder
 	          config.letters_element.children[i].innerHTML = letter
 	        }
 	        // update guessed count
-	        if (letter_states[i].guessed === true) { guessed_letters++ }
+	        if (letterStates[i].guessed === true) { guessedLetters++ }
 	      }
 
 	      // victory condition
-	      if (guessed_letters === letter_states.length) {
+	      if (guessedLetters === letterStates.length) {
 	        setMessage(messages.win)
 	        hide(config.input_element)
 	      }
@@ -178,7 +178,7 @@
 
 	    var guess = function (letter) {
 	      if (letter.match(/[a-z]/i)) {
-	        if (atob(current_word).indexOf(letter) !== -1) {
+	        if (atob(currentWord).indexOf(letter) !== -1) {
 	          fillInLetter(letter)
 	        } else {
 	          loseLife()
