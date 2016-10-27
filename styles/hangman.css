@@ -1,0 +1,11 @@
+ul#hangman_letters {
+  display: inline;
+  list-style-type: none;
+  margin: 5px;
+  padding: 5px;
+}
+ul#hangman_letters li {
+  display: inline;
+  margin: 5px;
+  padding: 5px;
+}

@@ -3,13 +3,19 @@
     <head>
         <meta charset="utf-8">
         <title>Simple Hangman Game</title>
+        <link rel="stylesheet" href="styles/hangman.css" type="text/css">
     </head>
     <body>
       <h1>Simple Hangman Game</h1>
       <div id="hangman_container">
-        <h2 id="hangman_tries"/>
+        <h2 id="hangman_message"></h2>
         <ul id="hangman_letters">
         </ul>
+        <hr />
+        <button id="hangman_start">Start</button>
+        <button id="hangman_reset">Reset</button>
+        <hr />
+        <input id="hangman_input" maxlength="1" size="5"/>
       </div>
       <script type="text/javascript" src="build/bundle.js" charset="utf-8"></script>
     </body>
